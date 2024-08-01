@@ -127,16 +127,12 @@ $H_A$: The Covid921 vaccine is effective in LGBTQ Community.
 
 Treatment is a categorical variable. LGBTQ is a categorical variable,so we use is cat~cat helper file   
 
-```{r}
-LGBTQ = filter(FinalData, LGBTQ=="gay")
-```
-
-
 ### Descriptive Results 
 
 ### Graphical Results
 
 ```{r}
+LGBTQ = filter(FinalData, LGBTQ=="gay")
 barchartGC(~infected + treatment,data=LGBTQ)
 barchartGC(~infected + treatment,data=LGBTQ, type="percent")
 ```
