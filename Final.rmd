@@ -54,7 +54,7 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
-This shows that 74% of the males who took the placebo got covid19, as were 26% males who got covid19.   
+This shows that 74% of the males who took the placebo got covid19, as were 26% males who recieved the vaccine got the virus. 
 
 ### Inferential Results
 ```{r}
@@ -63,8 +63,43 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+The Chi-squared test and Fisher's Exact Test both show a P-value of 0.00000000000000022, which is less than 0.05. 
+Therefore, we reject the null hypothesis. A statistically significant effect of the vaccine.  We see that MALES are 2.8 times more likely to contract Covid921 with the placebo compared to the vaccine.
+
+## LGBTQ
+
+$H_0$: The Covid921 vaccine is not effective in LGBTQ Community.
+
+$H_A$: The Covid921 vaccine is effective in LGBTQ Community.
 
 
+### Methods 
+
+Treatment is a categorical variable. LGBTQ is a categorical variable,so we use is cat~cat helper file    
+
+### Descriptive Results 
+
+### Graphical Results
+
+```{r}
+LGBTQ = filter(FinalData, LGBTQ=="gay")
+
+barchartGC(~infected + treatment,data=LGBTQ)
+barchartGC(~infected + treatment,data=LGBTQ, type="percent")
+```
+
+The bar charts illustrate that LGBTQ individuals who were vaccinated had a lower likelihood of contracting Covid-19 compared to those who received a placebo. Nevertheless, approximately 45% of the LGBTQ individuals who received the placebo remained uninfected, while around 50% of those who received the vaccine were uninfected.   
+
+
+### Numerical Results
+
+```{r}
+table1 <- xtabs(~treatment + infected, data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data reveal that roughly 80% of LGBTQ participants who received the placebo contracted Covid-19, compared to only 20% of those who received the vaccine. This indicates that the vaccine lowers the relative risk of infection by about 55.2%.
 
 ## Females
 
