@@ -1,12 +1,12 @@
 ---
 title: "Covid91 vaccine study Final2024"
-author: "Put your name here!"
+author: "Mariahlynn"
 output: 
   html_document:
     number_sections: true
     toc: true
     toc_depth: 5
-date: "`r Sys.Date()`" 
+date: " summer 2024" 
 ---
 
 ```{r include=FALSE,echo=FALSE}
@@ -25,6 +25,45 @@ mutate(across(where(is.character), as.factor))
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
 ## Males
+
+$H_0$: The Covid921 vaccine is not effective in males
+$H_A$: The Covid921 vaccine is not effective in females 
+
+### Methods
+
+Treatment is a categorical variable  
+MALES is also a categorical variable  
+We use the cat~cat helper file  
+
+### Descriptive Results 
+
+### Graphical Results 
+```{r}
+males=filter(FinalData,FinalData$sex=="M")
+barchartGC(~treatment + infected,data=males)
+barchartGC(~infected + treatment,data=males,type="Percent")
+```
+
+This bar charts shows that MALES who received the vaccine were less likely to get Covid921 in comparison to those who received a placebo. Therefore about 50% of MALES who received either the vaccine or placebo did not contract the virus. 
+
+
+### Numerical Results 
+```{r}
+table1 <- xtabs(~treatment + infected, data=males)
+rowPerc(table1)
+colPerc(table1)
+```
+
+This shows that 74% of the males who took the placebo got covid19, as were 26% males who got covid19.   
+
+### Inferential Results
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
 
 
 ## Females
