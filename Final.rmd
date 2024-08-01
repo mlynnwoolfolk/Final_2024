@@ -101,14 +101,89 @@ colPerc(table1)
 
 The numerical data reveal that roughly 80% of LGBTQ participants who received the placebo contracted Covid-19, compared to only 20% of those who received the vaccine. This indicates that the vaccine lowers the relative risk of infection by about 55.2%.
 
-## Females
 
+### Inferential Results
 
-## LGBTQ
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
+The chi-squared test yields a p-value of 0.000002266, while Fisher's Exact Test gives a p-value of 0.0000007269, both of which are well below the 0.05 area. Therefore, we reject the null hypothesis. This result indicates a statistically significant effect of the vaccine, demonstrating that the odds of contracting Covid921 are substantially lower with the vaccine compared to the placebo.
 
 
 ## Druggies
 
+$H_0$: The Covid921 vaccine is not effective in Drug users 
+
+$H_A$: The Covid921 vaccine is effective in Drug users
+
+### Methods 
+
+Treatment is a categorical variable   
+DRUGGIES is a categorical variable   
+So we use is cat~cat helper file    
+
+### Descriptive Results 
+
+### Graphical Results
+
+```{r}
+DrugUser=filter(FinalData,FinalData$DrugUser=="yes")
+
+barchartGC(~treatment + infected,data=DrugUser)
+barchartGC(~infected + treatment,data=DrugUser,type="percent")
+```
+
+The bar charts reveal an unexpected finding. The drug users who received the placebo were less likely to contract Covid921 than those who received the vaccine. However, it's important to note that around 50% of drug users in both groups did not contract the virus.
+
+
+### Numerical Results
+
+```{r}
+table1 <- xtabs(~treatment + infected, data=DrugUser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data show a 3.28% difference in infection rates: 3.61% of those who received the vaccine contracted Covid921, compared to just 0.33% of those who received the placebo. This indicates that the vaccine may not be effective in drug users. Typically, a vaccine should reduce the risk of contracting Covid921, rather than increase it.
+
+### Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The chi-squared test yields a P-value of 0.0000000001414, while Fisher's Exact Test provides a P-value of 0.000000000003261. Both p-values are well below the 0.05 threshold, suggesting a significant difference between the vaccine and placebo groups. Statistically, we would reject the null hypothesis. Therefore, the data indicates an unexpected increase in infection risk among drug users who received the vaccine. Consequently, despite the statistical significance, we fail to reject the null hypothesis based on these findings.
+
+# Individual Conclusions
+
+## MALES
+
+In the study, the data showed that males who got the vaccine were much less likely to get Covid921, with only 26% of them infected compared to 74% of those who got the placebo. The analysis using chi-squared and Fisher's Exact Test produced very low p-values (0.00000000000000022), far below 0.05, which means we reject the null hypothesis. Therefore, we conclude that the vaccine is effective in reducing the risk of Covid921 for males.
+
+
+## LGBTQ
+
+In the study involving the LGBTQ community, both the graphical and numerical data showed a significant decrease in Covid921 cases among those who received the vaccine. The vaccine reduced the risk by about 55.2% compared to the placebo. The very low p-values from the chi-squared test (0.000002266) and Fisher's Exact Test (0.0000007269) support rejecting the null hypothesis, confirming that the vaccine is effective in lowering the risk of contracting Covid921 within the LGBTQ community.
+
+## FEMALES
+
+In the study involving females, the vaccine significantly reduced the incidence of Covid921 compared to the placebo. The vaccine cut the risk of infection by around 46.9%. Both chi-squared and Fisher's Exact Test showed p-values far below 0.05 (0.00000001914 and 0.00000001246, respectively), leading us to reject the null hypothesis. This strongly suggests that the Covid921 vaccine is effective in decreasing infections among females.
+
+
+## DRUG USER
+
+In the case of drug users, the data showed a higher infection rate among those who received the vaccine (3.61%) compared to those who got the placebo (0.33%), which was unexpected. Even though both the chi-squared test and Fisher's Exact Test showed very low p-values (0.0000000001414 and 0.000000000003261), indicating a significant difference between the groups, the higher infection rate with the vaccine suggests we need to look into these surprising results further. Because of this increased infection risk, we end up failing to reject the null hypothesis.
+
 
 # Overall Results and Conclusions
+
+The Covid921 vaccine has been shown to significantly reduce Covid921 cases among males, females, and the LGBTQ community, with extremely low P-values consistently rejecting the null hypothesis and demonstrating a strong protective effect compared to the placebo. However, for drug users, the data unexpectedly shows a higher risk of infection, despite also having a low P-value. This indicates a need for further investigation to uncover any potential data issues or unique factors affecting drug users. While the vaccine is recommended for the general population, additional caution and analysis are necessary for drug users.
+
+
+
+
