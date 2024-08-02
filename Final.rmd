@@ -26,9 +26,9 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
-$H_0$: The Covid921 vaccine is not effective in males
+$H_0$: The Covid921 vaccine is not effective in MALES
 
-$H_A$: The Covid921 vaccine is effective in males 
+$H_A$: The Covid921 vaccine is effective in MALES
 
 ### Methods
 
@@ -69,9 +69,9 @@ Therefore, we reject the null hypothesis. A statistically significant effect of 
 
 ## Females
 
-$H_0$: The Covid921 vaccine is not effective in females
+$H_0$: The Covid921 vaccine is not effective in FEMALES
 
-$H_A$: The Covid921 vaccine is effective in females
+$H_A$: The Covid921 vaccine is effective in FEMALES
 
 ### Methods
 
